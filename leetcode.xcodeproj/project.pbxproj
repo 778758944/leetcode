@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7FB1B04021A63938002F69C0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1B03F21A63938002F69C0 /* main.cpp */; };
+		7FB1B05621A7928D002F69C0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1B03F21A63938002F69C0 /* main.cpp */; };
+		7FBE55AC21AE2A7D0050E831 /* Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE55AA21AE2A7D0050E831 /* Test.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,18 @@
 /* Begin PBXFileReference section */
 		7FB1B03C21A63938002F69C0 /* leetcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = leetcode; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FB1B03F21A63938002F69C0 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		7FB1B04621A63962002F69C0 /* KFrequent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = KFrequent.cpp; sourceTree = "<group>"; };
+		7FB1B04721A63962002F69C0 /* KFrequent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KFrequent.hpp; sourceTree = "<group>"; };
+		7FB1B04921A63CEE002F69C0 /* Compare.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Compare.cpp; sourceTree = "<group>"; };
+		7FB1B04A21A63CEE002F69C0 /* Compare.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Compare.hpp; sourceTree = "<group>"; };
+		7FB1B04C21A65870002F69C0 /* sortTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sortTest.cpp; sourceTree = "<group>"; };
+		7FB1B04D21A65870002F69C0 /* sortTest.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = sortTest.hpp; sourceTree = "<group>"; };
+		7FB1B04F21A78BFB002F69C0 /* BinaryTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryTree.cpp; sourceTree = "<group>"; };
+		7FB1B05021A78BFB002F69C0 /* BinaryTree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BinaryTree.hpp; sourceTree = "<group>"; };
+		7FB1B05221A78CA7002F69C0 /* Solution.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Solution.cpp; sourceTree = "<group>"; };
+		7FB1B05321A78CA7002F69C0 /* Solution.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Solution.hpp; sourceTree = "<group>"; };
+		7FBE55AA21AE2A7D0050E831 /* Test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Test.cpp; sourceTree = "<group>"; };
+		7FBE55AB21AE2A7D0050E831 /* Test.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Test.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +71,18 @@
 			isa = PBXGroup;
 			children = (
 				7FB1B03F21A63938002F69C0 /* main.cpp */,
+				7FB1B04621A63962002F69C0 /* KFrequent.cpp */,
+				7FB1B04721A63962002F69C0 /* KFrequent.hpp */,
+				7FB1B04921A63CEE002F69C0 /* Compare.cpp */,
+				7FB1B04A21A63CEE002F69C0 /* Compare.hpp */,
+				7FB1B04C21A65870002F69C0 /* sortTest.cpp */,
+				7FB1B04D21A65870002F69C0 /* sortTest.hpp */,
+				7FB1B04F21A78BFB002F69C0 /* BinaryTree.cpp */,
+				7FB1B05021A78BFB002F69C0 /* BinaryTree.hpp */,
+				7FB1B05221A78CA7002F69C0 /* Solution.cpp */,
+				7FB1B05321A78CA7002F69C0 /* Solution.hpp */,
+				7FBE55AA21AE2A7D0050E831 /* Test.cpp */,
+				7FBE55AB21AE2A7D0050E831 /* Test.hpp */,
 			);
 			path = leetcode;
 			sourceTree = "<group>";
@@ -118,7 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FB1B04021A63938002F69C0 /* main.cpp in Sources */,
+				7FBE55AC21AE2A7D0050E831 /* Test.cpp in Sources */,
+				7FB1B05621A7928D002F69C0 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
