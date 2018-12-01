@@ -19,6 +19,15 @@ struct Point {
     Point(int _x, int _y): x(_x), y(_y) {};
 };
 
+// operator must have a inline
+inline bool operator < (const Point& p1, const Point& p2) {
+    if (p1.x != p2.x) {
+        return p1.x < p2.x;
+    } else {
+        return p1.y < p2.y;
+    }
+}
+
 class Test {
     public:
         void testSet() {
