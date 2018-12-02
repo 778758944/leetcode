@@ -13,5 +13,6 @@
 
 int main(int argc, const char * argv[]) {
     Solution s;
-    s.testWordPattern();
+//    s.testWordPattern();
+    s.testCountNode();
 }

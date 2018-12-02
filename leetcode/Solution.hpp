@@ -66,6 +66,13 @@ public:
         ListNode(int _val): val(_val), next(NULL) {}
     };
     
+    struct TreeNode {
+        int val;
+        TreeNode * left;
+        TreeNode * right;
+        TreeNode(int x): val(x), left(NULL), right(NULL) {}
+    };
+    
     TreeNode * sortedArrayToBst(vector<int> arr) {
         unsigned long size = arr.size();
         TreeNode * p = new TreeNode(0);
@@ -324,6 +331,85 @@ public:
     
     void testWordPattern() {
         cout << wordPattern("ab", "aa bb aa bb") << endl;
+    }
+    
+    TreeNode * generateFullTree(const vector<int> &arr) {
+        TreeNode * root = nullptr;
+        TreeNode * temp = nullptr;
+        int size = (int) arr.size();
+        for (int i = 0; i < size; i++) {
+            TreeNode * node = new TreeNode(arr[i]);
+            if (!root) {
+                root = node;
+                temp = node;
+            } else {
+                if (!temp->left) {
+                    temp->left = node;
+                } else {
+                    temp->right = node;
+                    temp = temp->left;
+                }
+            }
+        }
+        
+        return root;
+    }
+    
+    int binaryDeepLevel(TreeNode * root) {
+        if (!root) return 0;
+        return binaryDeepLevel(root->left) + 1;
+    }
+    
+    int countNodes(TreeNode * root) {
+        /*
+        if (!root) return 0;
+        int leftNum = countNodes(root->left);
+        int rightNum = countNodes(root->right);
+        return leftNum + rightNum + 1;
+         */
+        if (!root) return 0;
+        /*
+        vector<TreeNode *> v;
+        v.push_back(root);
+        int result = 0;
+        
+        while(!v.empty()) {
+            int size = (int) v.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode * temp = v[i];
+                if (temp && temp->left) v.push_back(temp->left);
+                if (temp && temp->right) v.push_back(temp->right);
+            }
+            result += size;
+            v.erase(v.begin(), v.begin() + size);
+        }
+        
+        return result;
+         */
+        
+        int level = binaryDeepLevel(root) + 1;
+        cout << level << endl;
+        cout << (1 << level) - 1 << endl;
+        int fullall = (1 << level) -1;
+        
+        TreeNode * curr = root;
+        while (curr->left != NULL) {
+            int lh = binaryDeepLevel(curr->left);
+            int rh = binaryDeepLevel(curr->right);
+            if (rh < lh) {
+                fullall -= (1 << rh);
+                curr = curr->left;
+            } else {
+                curr = curr->right;
+            }
+        }
+        return fullall;
+    }
+    
+    void testCountNode() {
+        vector<int> arr = {1, 2, 3, 4, 5, 6};
+        TreeNode * root = generateFullTree(arr);
+        cout << countNodes(root) << endl;
     }
     
     
