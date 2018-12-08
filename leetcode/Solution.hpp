@@ -412,6 +412,261 @@ public:
         cout << countNodes(root) << endl;
     }
     
+    int findTargetSumWays(vector<int> &nums, int S) {
+        vector<int> v(1, S);
+        int result = 0;
+        int size = (int) nums.size();
+        
+        for (int i = 0; i < size; i++) {
+            int len = (int) v.size();
+//            cout << len << endl;
+            for (int j = 0; j < len; j++) {
+                int r = v[0];
+                int add = r + nums[i];
+                int minus = r - nums[i];
+                v.erase(v.begin(), v.begin() + 1);
+                if (i == size - 1) {
+                    if (add == 0) result++;
+                    if (minus == 0) result++;
+                } else {
+                    v.push_back(add);
+                    v.push_back(minus);
+                }
+            }
+            
+//            v.erase(v.begin(), v.begin() + len);
+        }
+        
+        return result;
+        /*
+        findTargetHelper(nums, S, 0, (int) nums.size());
+        return count;
+         */
+    }
+    
+    int count = 0;
+    
+    void findTargetHelper(vector<int>& nums, int s, int index, int size) {
+        if (index == size) {
+            if (s == 0) count++;
+            return;
+        }
+        
+        int lastAdd = s + nums[index];
+        int lastMinus = s - nums[index];
+        
+        findTargetHelper(nums, lastAdd, index + 1, size);
+        findTargetHelper(nums, lastMinus, index + 1, size);
+    }
+    
+    void testFindTarget() {
+        vector<int> nums = {2,7,9,13,27,31,37,3,2,3,5,7,11,13,17,19,23,29,47,53};
+        int s = 107;
+        
+        cout << findTargetSumWays(nums, s) << endl;
+    }
+    
+    void testInsertVector() {
+        vector<int> v(3, 100);
+        vector<int> v2 = {1, 2, 3};
+        v.insert(v.end(), v2.begin(), v2.end());
+        cout << v[2] << endl;
+        
+    }
+    
+    uint32_t reverseBits(uint32_t n) {
+        uint32_t r = 0;
+        uint32_t mask = 0x0001;
+        for (int i = 0; i < 32; i++) {
+            int left = n & mask;
+            r = r << 1;
+            r |= left;
+            n = n >> 1;
+        }
+        return r;
+    }
+    
+    bool validUtf8(vector<int> &data) {
+        // get length form first byte
+        int size = (int) data.size();
+        int i = 0;
+        int mask = 0x0001;
+        
+        while (i < size) {
+            int num = data[i];
+            int len = 0;
+            int fb = (num >> 7) & mask;
+            while (fb == 1) {
+                len++;
+                fb = (num >> (7-len)) & mask;
+            }
+            
+            if (len > 4 || len == 1) {
+                return false;
+            } else if (len == 0) {
+                i++;
+            } else {
+                int n = 0;
+                while (n < len - 1) {
+                    ++i;
+                    if (i < size) {
+                        if (!isContinueUtf8Byte(data[i])) {
+                            return false;
+                        }
+                    } else {
+                        return false;
+                    }
+                    ++n;
+                }
+                
+                i++;
+            }
+        }
+        
+        
+        return true;
+    }
+    
+    bool isContinueUtf8Byte(int t) {
+        int mask = 0x0001;
+        int fb = (t >> 7) & mask;
+        int sb = (t >> 6) & mask;
+        
+        if (fb == 1 && sb == 0) {
+            return true;
+        }
+        
+        return false;
+    }
+    
+    
+    void testValidUtf8() {
+        vector<int> v = {235, 140, 4};
+        cout << validUtf8(v) << endl;
+    }
+    
+    bool validMountainArray(vector<int> &A) {
+        int size = (int) A.size();
+        if (size < 3) return false;
+        int temp = A[0];
+        bool isUp = true;
+        for(int i = 1; i < size; i++) {
+            int num = A[i];
+            if (num == temp) return false;
+            if (isUp) {
+                if (num < temp) {
+                    isUp = false;
+                    if (i == 1) return false;
+                }
+            } else {
+                if (num > temp) {
+                    return false;
+                }
+            }
+            temp = num;
+        }
+        return !isUp;
+    }
+    
+    void testValidMountainArray() {
+        vector<int> v = {3, 5, 5};
+        cout << validMountainArray(v) << endl;
+    }
+    
+    int uniquePath(int m, int n) {
+        vector<vector<int> > path (m, vector<int>(n, 1));
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                path[i][j] = path[i][j-1] + path[i-1][j];
+            }
+        }
+        return path[m-1][n-1];
+    }
+    
+    int longestPailndrome(string s) {
+        map<char, int> m;
+        int r = 0;
+        int len = (int) s.size();
+        for (int i = 0; i < len; i++) {
+            char c = s[i];
+            if (!m[c]) {
+                m[c] = 1;
+            } else {
+                m[c] += 1;
+            }
+        }
+        
+        for (pair<const char, int> &p : m) {
+            if (p.second % 2 == 0) {
+                r += p.second;
+            } else {
+                if (r % 2 == 0) {
+                    r += p.second;
+                } else {
+                    r += (p.second - 1);
+                }
+            }
+        }
+        return r;
+    }
+    
+    void testLongestPailndrome() {
+        string s = "abccccdd";
+        cout << longestPailndrome(s) << endl;
+    }
+    
+    // leetcode 718
+    int findLength(vector<int> &A, vector<int> &B) {
+        int a_len = (int) A.size();
+        int b_len = (int) B.size();
+        int r = 0;
+        for (int i = b_len - 1; i >= 0; i--) {
+            int temp = 0;
+            for (int j = 0; j < a_len; j++) {
+                if (i + j >= b_len) {
+                    r = r > temp ? r : temp;
+                    break;
+                };
+                
+                if (A[j] == B[i + j]) {
+                    temp += 1;
+                } else {
+                    r = r > temp ? r : temp;
+                    temp = 0;
+                }
+            }
+            r = r > temp ? r : temp;
+        }
+        
+        for (int i = 1; i < a_len; i++) {
+            int temp = 0;
+            for (int j = 0; j < b_len; j++) {
+                if (i + j >= a_len) {
+                    r = r > temp ? r : temp;
+                    break;
+                }
+                
+                
+                if (B[j] == A[i + j]) {
+                    temp += 1;
+                } else {
+                    r = r > temp ? r : temp;
+                    temp = 0;
+                }
+            }
+            r = r > temp ? r : temp;
+        }
+        
+        return r;
+    }
+    
+    void testFindLength() {
+        vector<int> a = {0,1,1,1,1};
+        vector<int> b = {1,0,1,0,1};
+        
+        cout << findLength(a, b) << endl;
+    }
+    
     
     
     

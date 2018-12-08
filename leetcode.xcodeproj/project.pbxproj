@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F1D028121B909F500B2DCED /* ImageQuantizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F1D027F21B909F500B2DCED /* ImageQuantizer.cpp */; };
+		7F1D028421B90B1A00B2DCED /* ColorNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F1D028221B90B1A00B2DCED /* ColorNode.cpp */; };
 		7FB1B05621A7928D002F69C0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1B03F21A63938002F69C0 /* main.cpp */; };
 		7FBE55AD21AE34890050E831 /* Solution.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1B05221A78CA7002F69C0 /* Solution.cpp */; };
 /* End PBXBuildFile section */
@@ -24,6 +26,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7F1D027F21B909F500B2DCED /* ImageQuantizer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ImageQuantizer.cpp; sourceTree = "<group>"; };
+		7F1D028021B909F500B2DCED /* ImageQuantizer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ImageQuantizer.hpp; sourceTree = "<group>"; };
+		7F1D028221B90B1A00B2DCED /* ColorNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ColorNode.cpp; sourceTree = "<group>"; };
+		7F1D028321B90B1A00B2DCED /* ColorNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ColorNode.hpp; sourceTree = "<group>"; };
 		7FB1B03C21A63938002F69C0 /* leetcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = leetcode; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FB1B03F21A63938002F69C0 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		7FB1B04621A63962002F69C0 /* KFrequent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = KFrequent.cpp; sourceTree = "<group>"; };
@@ -83,6 +89,10 @@
 				7FB1B05321A78CA7002F69C0 /* Solution.hpp */,
 				7FBE55AA21AE2A7D0050E831 /* Test.cpp */,
 				7FBE55AB21AE2A7D0050E831 /* Test.hpp */,
+				7F1D027F21B909F500B2DCED /* ImageQuantizer.cpp */,
+				7F1D028021B909F500B2DCED /* ImageQuantizer.hpp */,
+				7F1D028221B90B1A00B2DCED /* ColorNode.cpp */,
+				7F1D028321B90B1A00B2DCED /* ColorNode.hpp */,
 			);
 			path = leetcode;
 			sourceTree = "<group>";
@@ -144,7 +154,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FBE55AD21AE34890050E831 /* Solution.cpp in Sources */,
+				7F1D028121B909F500B2DCED /* ImageQuantizer.cpp in Sources */,
 				7FB1B05621A7928D002F69C0 /* main.cpp in Sources */,
+				7F1D028421B90B1A00B2DCED /* ColorNode.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
