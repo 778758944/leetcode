@@ -13,5 +13,5 @@
 
 int main(int argc, const char * argv[]) {
     Solution s;
-    s.testFindLength();
+    s.testDivide();
 }
